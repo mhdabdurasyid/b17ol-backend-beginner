@@ -44,7 +44,7 @@ app.route('/profile')
 
         response.send(data);
     })
-    //Tugas no 5
+    // Tugas no 5
     .put((request, response) => {
         const isValid = Object.keys(data).every(el => Object.keys(request.body).includes(el));
 
@@ -58,4 +58,8 @@ app.route('/profile')
         } else {
             response.send('Error! Incomplete key entry...');
         }
+    })
+    // Tugas no 6
+    .get((request, response) => {
+        response.send(data);
     })
