@@ -23,3 +23,8 @@ app.post('/data', (request, response) => {
     console.log(request.body);
     response.sendStatus(200);
 })
+
+// Tugas no 3
+app.post('/profile', (request, response) => {
+    response.send(request.body);
+})
