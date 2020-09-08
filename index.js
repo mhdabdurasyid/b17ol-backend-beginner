@@ -63,3 +63,9 @@ app.route('/profile')
     .get((request, response) => {
         response.send(data);
     })
+    // Tugas no 7
+    .delete((request, response) => {
+        data = null;
+        console.log(data);
+        response.send('Delete data success');
+    })
