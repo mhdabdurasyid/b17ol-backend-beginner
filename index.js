@@ -24,7 +24,23 @@ app.post('/data', (request, response) => {
     response.sendStatus(200);
 })
 
-// Tugas no 3
-app.post('/profile', (request, response) => {
-    response.send(request.body);
-})
+app.route('/profile')
+    // Tugas no 3
+    .post((request, response) => {
+        response.send(request.body);
+    })
+    // Tugas no 4
+    .patch((request, response) => {
+        let data = {
+            name: 'Jane',
+            batch: '17.2',
+            email: 'janedoe@gmail.com'
+        };
+
+        data = {
+            ...data,
+            ...request.body
+        };
+        
+        response.send(data);
+    })
