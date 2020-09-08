@@ -24,6 +24,12 @@ app.post('/data', (request, response) => {
     response.sendStatus(200);
 })
 
+let data = {
+    name: 'Jane',
+    batch: '17.2',
+    email: 'janedoe@gmail.com'
+};
+
 app.route('/profile')
     // Tugas no 3
     .post((request, response) => {
@@ -31,16 +37,25 @@ app.route('/profile')
     })
     // Tugas no 4
     .patch((request, response) => {
-        let data = {
-            name: 'Jane',
-            batch: '17.2',
-            email: 'janedoe@gmail.com'
-        };
-
         data = {
             ...data,
             ...request.body
         };
-        
+
         response.send(data);
+    })
+    //Tugas no 5
+    .put((request, response) => {
+        const isValid = Object.keys(data).every(el => Object.keys(request.body).includes(el));
+
+        if (isValid) {
+            data = {
+                ...data,
+                ...request.body
+            };
+
+            response.send(data);
+        } else {
+            response.send('Error! Incomplete key entry...');
+        }
     })
